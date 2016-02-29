@@ -8,13 +8,13 @@
 === Installation
 
 Install bundle
-+bundle install+
+`bundle install`
 
 Migrate db
-+rake db:migrate+
+`rake db:migrate`
 
 Install front end vendor assets
-+rake bower:install+
+`rake bower:install`
 
 Start server
-+rails s+
+`rails s`
