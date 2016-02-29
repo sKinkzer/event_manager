@@ -1,0 +1,13 @@
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h4>
+            <%= event.name %>
+            <small class="pull-right">
+                <%= l(event.starts_at, format: :short) %> - <%= l(event.ends_at, format: :short) %>
+            </small>
+        </h4>
+    </div>
+    <div class="panel-body">
+        <p><%= event.description %></p>
+    </div>
+</div>

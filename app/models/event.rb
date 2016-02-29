@@ -21,5 +21,13 @@ class Event < ActiveRecord::Base
   has_many :event_registrations
   has_many :users, through: :event_registrations
 
-  has_many :participants, -> { EventRegistration.accepted }, through: :event_registrations
+  has_many :participants, -> { EventRegistration.accepted }, class_name: 'User', through: :event_registrations
+  has_many :tentative_participants, -> { EventRegistration.maybe }, class_name: 'User', through: :event_registrations
+  has_many :declined_participants, -> { EventRegistration.denied }, class_name: 'User', through: :event_registrations
+
+  validates :name, presence: true
+  validates :starts_at, presence: true
+  validates :ends_at, presence: true
+
+  accepts_nested_attributes_for :location
 end

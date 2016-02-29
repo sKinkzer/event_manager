@@ -18,6 +18,25 @@
 
 class EventsController < ApplicationController
   def index
+    @events = Event.all
+  end
 
+  def new
+    @event = Event.new
+    @locations = Location.all
+  end
+
+  def create
+    @event = Event.new(event_params)
+    if @event.save
+      redirect_to events_path
+    else
+      render action: :new
+    end
+  end
+
+  private
+  def event_params
+    params.require(:event).permit(:name, :description, :starts_at, :ends_at)
   end
 end

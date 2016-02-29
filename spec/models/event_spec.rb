@@ -26,5 +26,12 @@ RSpec.describe Event, type: :model do
   it { is_expected.to belong_to :location }
   it { is_expected.to have_many :event_registrations }
   it { is_expected.to have_many :users }
+  it { is_expected.to have_many :participants }
+  it { is_expected.to have_many :tentative_participants }
+  it { is_expected.to have_many :declined_participants }
+
+  it { is_expected.to validate_presence_of :name }
+  it { is_expected.to validate_presence_of :starts_at }
+  it { is_expected.to validate_presence_of :ends_at }
 
 end

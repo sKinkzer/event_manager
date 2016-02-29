@@ -31,4 +31,6 @@ class User < ActiveRecord::Base
 
   has_many :event_registrations
   has_many :events, through: :event_registrations
+  has_many :events_participated, -> { EventRegistration.accepted }, class_name: 'Event', through: :event_registrations
+
 end

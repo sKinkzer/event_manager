@@ -32,4 +32,5 @@ RSpec.describe User, type: :model do
 
   it { is_expected.to have_many :event_registrations }
   it { is_expected.to have_many :events }
+  it { is_expected.to have_many :events_participated }
 end
