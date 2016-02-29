@@ -4,6 +4,8 @@
     "bootstrap": "latest",
     "lodash": "latest",
     "angular": "latest",
-    "angular-resource": "latest"
+    "angular-resource": "latest",
+    "angucomplete-alt": "latest",
+    "datetimepicker": "latest"
   }
 }

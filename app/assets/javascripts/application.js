@@ -12,7 +12,18 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require datetimepicker
 //= require bootstrap/dist/js/bootstrap
 //= require lodash/dist/lodash
 //= require angular
+//= require angular-resource
+//= require angular-rails-templates
+//= require_tree ./templates
+//= require angucomplete-alt/angucomplete-alt
 //= require_tree .
+$(document).ready(function () {
+	$('.datetimepicker').datetimepicker({
+		minDate: 0
+	});
+});
+

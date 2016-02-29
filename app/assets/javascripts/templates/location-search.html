@@ -1,0 +1,32 @@
+<div class="form-group">
+	<label>Where at?</label>
+	<angucomplete-alt id="location"
+              placeholder="Search locations or fill in details below"
+              pause="400"
+              input-changed="locationSearch.onInputChanged"
+              selected-object="locationSearch.onLocationSelected"
+              remote-url="/locations/search?q="
+              title-field="name"
+              description-field="description"
+              input-class="form-control form-control-small"></angucomplete-alt>
+</div>
+<div class="row">
+	<div class="col-xs-6">
+		<input type="hidden" name="event[location_id]" ng-model="locationSearch.location.id">
+		<input type="hidden" name="event[location_attributes][id]" ng-model="locationSearch.location.id">
+		<input type="text" name="event[location_attributes][name]" ng-model="locationSearch.location.name" class="hidden">
+		<label>Location Address</label>
+		<input name="event[location_attributes][address]" ng-model="locationSearch.location.address" class="form-control">
+	</div>
+	<div class="col-xs-6">
+		<label>Location Phone</label>
+		<input name="event[location_attributes][phone]" ng-model="locationSearch.location.phone" class="form-control">
+	</div>
+</div>
+	
+<div class="row">
+	<div class="col-xs-6">
+		<label>Location Web Address</label>
+		<input name="event[location_attributes][web_address]" ng-model="locationSearch.location.web_address" class="form-control">
+	</div>
+</div>

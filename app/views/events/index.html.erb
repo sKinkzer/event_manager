@@ -1,4 +1,17 @@
 <h1>Events</h1>
+<div class="row form-group">
+	<div class="col-xs-12">
+		<%= form_tag '', method: :get, class: 'form form-inline' do %>
+			<div class="row">
+				<div class="col-xs-offset-6 col-xs-6 text-right">
+					<input type="text" placeholder="Select start time" name="filter[starts_at]" class="form-control datetimepicker">
+					<input type="text" placeholder="Type location name" name="filter[location_name]" class="form-control">
+					<button class="btn btn-primary">Filter</button>
+				</div>
+			</div>
+		<% end %>
+	</div>
+</div>
 <% @events.each do |event| %>
     <%= render partial: 'event', locals: { event: event } %>
 <% end %>

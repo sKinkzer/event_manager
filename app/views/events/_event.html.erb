@@ -8,6 +8,50 @@
         </h4>
     </div>
     <div class="panel-body">
-        <p><%= event.description %></p>
+        <div class="row">
+            <div class="col-xs-4">
+                <p><%= event.description %></p>
+            </div>
+            <div class="col-xs-4">
+                <h4>Location</h4>
+                <div><span class="glyphicon glyphicon-home"></span> <%= event.try(:location).try(:name) || '-' %></div>
+                <div><span class="glyphicon glyphicon-map-marker"></span> <%= event.try(:location).try(:address) || '-' %></div>
+                <div><span class="glyphicon glyphicon-phone"></span> <%= event.try(:location).try(:phone) || '-' %> </div>
+                <div><span class="glyphicon glyphicon-globe"></span> <%= event.try(:location).try(:web_address)|| '-' %></div>
+            </div>
+            <div class="col-xs-4">
+                <h4>Participants</h4>
+                <div class="row">
+                    <div class="col-xs-12">
+                        <strong>Going</strong><br>
+                        <%= event.participants.map(&:email).join(',') %>
+                     </div>
+                     <div class="col-xs-12">
+                        <strong>Maybe</strong><br>
+                        <%= event.tentative_participants.map(&:email).join(',') %>
+                     </div>
+                     <div class="col-xs-12">
+                        <strong>Declined</strong><br>
+                        <%= event.declined_participants.map(&:email).join(',') %>
+                     </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="panel-footer">
+        <div class="row">
+            <div class="col-xs-12">
+                <h4>Going?</h4>
+                <%= button_to [:participate, event], class: 'btn btn-success pull-left' do %>
+                    Yes
+                <% end %>
+                <%= button_to [:maybe, event], class: 'btn btn-warning pull-left' do %>
+                    Maybe
+                <% end %>
+                <%= button_to [:decline, event], class: 'btn btn-danger pull-left' do %>
+                    No
+                <% end %>
+            </div>
+        </div>
     </div>
 </div>

@@ -1,3 +1,8 @@
+<% if @event.errors.any? %>
+  <% @event.errors.full_messages.each do |msg| %>
+    <div class="alert alert-danger"><%= msg %></div>
+  <% end %>
+<% end %>
 <div class="row">
     <div class="col-xs-12">
         <h3>What's happening?</h3>
@@ -14,26 +19,18 @@
                 <div class="row">
                     <div class="col-xs-6">
                         <label>Starts at</label>
-                        <%= f.datetime_local_field :starts_at, min: DateTime.current, class: 'form-control' %>
+                        <%= f.text_field :starts_at, class: 'form-control datetimepicker' %>
                     </div>
                     <div class="col-xs-6">
                         <label>Ends at</label>
-                        <%= f.datetime_local_field :ends_at, min: DateTime.current, class: 'form-control' %>
+                        <%= f.text_field :ends_at, class: 'form-control datetimepicker' %>
                     </div>
                 </div>
             </div>
             <div class="form-group">
                 <div class="row">
                     <div class="col-xs-6">
-                        <%= f.select :location_id,
-                                     @locations.collect {|location| [location.name, location.id]},
-                                     { include_blank: 'Add or select Location' },
-                                     class: 'form-control' %>
-                    </div>
-                    <div class="col-xs-6">
-                        <%= f.fields_for :location do |ff| %>
-                            
-                        <% end %>
+                        <em-location-search><em-location-search>
                     </div>
                 </div>
             </div>
